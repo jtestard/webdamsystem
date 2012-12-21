@@ -10,7 +10,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121107154518) do
+ActiveRecord::Schema.define(:version => 20121128163150) do
+
+  create_table "accounts", :force => true do |t|
+    t.string   "username"
+    t.string   "ip"
+    t.integer  "port"
+    t.boolean  "active"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "pictures", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.binary   "image_file"
+    t.binary   "image_small_file"
+    t.binary   "image_thumb_file"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "username"

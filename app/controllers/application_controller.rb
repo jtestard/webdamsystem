@@ -3,9 +3,16 @@ class ApplicationController < ActionController::Base
   
   helper_method :current_user
   helper_method :is_admin
+  helper_method :port
+  
+  def initialize
+    @port = ENV['PORT']
+    super
+  end
   
   private
-  @@adminlist = Array[3,4,5]
+  #TODO : need to find a clean way to define our admin list.
+  #@@adminlist = Array[3,4,5]
   
   def current_user_session
     return @current_user_session if defined?(@current_user_session)
@@ -18,6 +25,6 @@ class ApplicationController < ActionController::Base
   end
   
   def is_admin(user_id)
-    return @@adminlist.include?(user_id)
+    return current_user.nil?#@@adminlist.include?(user_id)
   end
 end

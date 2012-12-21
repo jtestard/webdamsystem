@@ -1,4 +1,4 @@
-LoginApp::Application.configure do
+WepimApp::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   # In the development environment your application's code is reloaded on
@@ -10,7 +10,7 @@ LoginApp::Application.configure do
   config.whiny_nils = true
 
   # Show full error reports and disable caching
-  config.consider_all_requests_local       = true
+  config.consider_all_requests_local       = false
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send

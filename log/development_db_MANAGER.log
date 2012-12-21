@@ -1,0 +1,69 @@
+# Logfile created on Tue Dec 18 13:40:53 +0100 2012 by logger.rb/1.2.6
+D, [2012-12-18T13:40:53.833946 #28853] DEBUG -- :   [1m[36m (239.4ms)[0m  [1mDROP DATABASE IF EXISTS `development_MANAGER`[0m
+D, [2012-12-18T13:40:53.838623 #28853] DEBUG -- :   [1m[35m (0.9ms)[0m  DROP DATABASE IF EXISTS `test_MANAGER`
+D, [2012-12-18T13:40:53.844650 #28853] DEBUG -- :   [1m[36m (0.4ms)[0m  [1mCREATE DATABASE `development_MANAGER` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_unicode_ci`[0m
+D, [2012-12-18T13:40:53.851124 #28853] DEBUG -- :   [1m[35m (0.5ms)[0m  CREATE DATABASE `test_MANAGER` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_unicode_ci`
+D, [2012-12-18T13:40:53.984045 #28853] DEBUG -- :   [1m[36m (122.1ms)[0m  [1mCREATE TABLE `accounts` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `ip` varchar(255), `port` int(11), `active` tinyint(1), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+D, [2012-12-18T13:40:54.075603 #28853] DEBUG -- :   [1m[35m (87.9ms)[0m  CREATE TABLE `pictures` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL, `image_file_name` varchar(255), `image_content_type` varchar(255), `image_file_size` int(11), `image_updated_at` datetime, `image_file` blob, `image_small_file` blob, `image_thumb_file` blob) ENGINE=InnoDB
+D, [2012-12-18T13:40:54.158861 #28853] DEBUG -- :   [1m[36m (79.3ms)[0m  [1mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `email` varchar(255), `crypted_password` varchar(255), `password_salt` varchar(255), `persistence_token` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+D, [2012-12-18T13:40:54.250513 #28853] DEBUG -- :   [1m[35m (88.6ms)[0m  CREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB
+D, [2012-12-18T13:40:54.409004 #28853] DEBUG -- :   [1m[36m (156.5ms)[0m  [1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+D, [2012-12-18T13:40:54.412440 #28853] DEBUG -- :   [1m[35m (0.5ms)[0m  SELECT version FROM `schema_migrations`
+D, [2012-12-18T13:40:54.458390 #28853] DEBUG -- :   [1m[36m (45.5ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20121128163150')[0m
+D, [2012-12-18T13:40:54.508183 #28853] DEBUG -- :   [1m[35m (49.3ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20121121154121')
+D, [2012-12-18T13:40:54.557924 #28853] DEBUG -- :   [1m[36m (49.0ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20121121153910')[0m
+D, [2012-12-18T13:40:54.607632 #28853] DEBUG -- :   [1m[35m (49.0ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20121107154518')
+D, [2012-12-18T13:40:54.613674 #28853] DEBUG -- :   [1m[36m (0.4ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+D, [2012-12-18T13:41:13.111331 #28852] DEBUG -- :   [1m[36mAccount Load (0.4ms)[0m  [1mSELECT `accounts`.* FROM `accounts` [0m
+D, [2012-12-18T13:41:13.188921 #28852] DEBUG -- :   [1m[35m (0.2ms)[0m  CREATE DATABASE IF NOT EXISTS development_MANAGER;
+D, [2012-12-18T13:41:13.381842 #28852] DEBUG -- :   [1m[36m (120.5ms)[0m  [1mCREATE TABLE `WLSchema` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `schema` varchar(255)) ENGINE=InnoDB[0m
+D, [2012-12-18T13:41:13.398175 #28852] DEBUG -- :   [1m[35mWLSchema_MANAGER Load (0.4ms)[0m  SELECT `WLSchema`.* FROM `WLSchema` 
+D, [2012-12-18T13:41:13.445110 #28852] DEBUG -- :   [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`persistence_token` = '5162f74b2845eca7977f89c1bbdabb0e6b635e11d6fbc9e11a31ffa61c3f44e84cf921a3b393fe2565c4e79c7fa4f33158a6688b23572a70be0a7915c97d30b4' LIMIT 1[0m
+D, [2012-12-18T13:41:13.450190 #28852] DEBUG -- :   [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+D, [2012-12-18T13:41:17.698097 #28852] DEBUG -- :   [1m[36mAccount Load (0.5ms)[0m  [1mSELECT `accounts`.* FROM `accounts` WHERE `accounts`.`username` = 'hello' LIMIT 1[0m
+D, [2012-12-18T13:41:17.699889 #28852] DEBUG -- :   [1m[35m (0.2ms)[0m  SELECT MAX(`accounts`.`id`) AS max_id FROM `accounts` 
+D, [2012-12-18T13:41:17.724505 #28852] DEBUG -- :   [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+D, [2012-12-18T13:41:17.737317 #28852] DEBUG -- :   [1m[35mSQL (0.5ms)[0m  INSERT INTO `accounts` (`active`, `created_at`, `ip`, `port`, `updated_at`, `username`) VALUES (0, '2012-12-18 12:41:17', 'localhost', 10000, '2012-12-18 12:41:17', 'hello')
+D, [2012-12-18T13:41:17.777961 #28852] DEBUG -- :   [1m[36m (39.7ms)[0m  [1mCOMMIT[0m
+D, [2012-12-18T13:41:17.789850 #28852] DEBUG -- :   [1m[35mAccount Load (0.4ms)[0m  SELECT `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 1 LIMIT 1
+D, [2012-12-18T13:41:17.800069 #28852] DEBUG -- :   [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`persistence_token` = '5162f74b2845eca7977f89c1bbdabb0e6b635e11d6fbc9e11a31ffa61c3f44e84cf921a3b393fe2565c4e79c7fa4f33158a6688b23572a70be0a7915c97d30b4' LIMIT 1[0m
+D, [2012-12-18T13:41:17.801160 #28852] DEBUG -- :   [1m[35mUser Load (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+D, [2012-12-18T13:41:19.257755 #28852] DEBUG -- :   [1m[36mAccount Load (0.1ms)[0m  [1mSELECT `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 1 LIMIT 1[0m
+D, [2012-12-18T13:41:19.625679 #28852] DEBUG -- :   [1m[35m (0.2ms)[0m  BEGIN
+D, [2012-12-18T13:41:19.631078 #28852] DEBUG -- :   [1m[36m (0.4ms)[0m  [1mUPDATE `accounts` SET `updated_at` = '2012-12-18 12:41:19', `active` = 1 WHERE `accounts`.`id` = 1[0m
+D, [2012-12-18T13:41:19.712073 #28852] DEBUG -- :   [1m[35m (80.3ms)[0m  COMMIT
+D, [2012-12-18T13:41:22.285697 #28852] DEBUG -- :   [1m[36mAccount Load (0.6ms)[0m  [1mSELECT `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 1 LIMIT 1[0m
+D, [2012-12-18T13:44:52.956542 #28886] DEBUG -- :   [1m[36m (252.9ms)[0m  [1mDROP DATABASE IF EXISTS `development_MANAGER`[0m
+D, [2012-12-18T13:44:52.961076 #28886] DEBUG -- :   [1m[35m (0.8ms)[0m  DROP DATABASE IF EXISTS `test_MANAGER`
+D, [2012-12-18T13:44:52.966964 #28886] DEBUG -- :   [1m[36m (0.5ms)[0m  [1mCREATE DATABASE `development_MANAGER` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_unicode_ci`[0m
+D, [2012-12-18T13:44:52.973095 #28886] DEBUG -- :   [1m[35m (0.3ms)[0m  CREATE DATABASE `test_MANAGER` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_unicode_ci`
+D, [2012-12-18T13:44:53.105534 #28886] DEBUG -- :   [1m[36m (121.4ms)[0m  [1mCREATE TABLE `accounts` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `ip` varchar(255), `port` int(11), `active` tinyint(1), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+D, [2012-12-18T13:44:53.205324 #28886] DEBUG -- :   [1m[35m (95.5ms)[0m  CREATE TABLE `pictures` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL, `image_file_name` varchar(255), `image_content_type` varchar(255), `image_file_size` int(11), `image_updated_at` datetime, `image_file` blob, `image_small_file` blob, `image_thumb_file` blob) ENGINE=InnoDB
+D, [2012-12-18T13:44:53.313445 #28886] DEBUG -- :   [1m[36m (104.0ms)[0m  [1mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `email` varchar(255), `crypted_password` varchar(255), `password_salt` varchar(255), `persistence_token` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+D, [2012-12-18T13:44:53.413054 #28886] DEBUG -- :   [1m[35m (96.6ms)[0m  CREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB
+D, [2012-12-18T13:44:53.571601 #28886] DEBUG -- :   [1m[36m (156.6ms)[0m  [1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+D, [2012-12-18T13:44:53.574925 #28886] DEBUG -- :   [1m[35m (0.5ms)[0m  SELECT version FROM `schema_migrations`
+D, [2012-12-18T13:44:53.629492 #28886] DEBUG -- :   [1m[36m (53.5ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20121128163150')[0m
+D, [2012-12-18T13:44:53.679215 #28886] DEBUG -- :   [1m[35m (49.0ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20121121154121')
+D, [2012-12-18T13:44:53.729050 #28886] DEBUG -- :   [1m[36m (49.1ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20121121153910')[0m
+D, [2012-12-18T13:44:53.778498 #28886] DEBUG -- :   [1m[35m (48.7ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20121107154518')
+D, [2012-12-18T13:44:53.784469 #28886] DEBUG -- :   [1m[36m (0.5ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+D, [2012-12-18T13:45:01.099812 #28885] DEBUG -- :   [1m[36mAccount Load (0.3ms)[0m  [1mSELECT `accounts`.* FROM `accounts` [0m
+D, [2012-12-18T13:45:01.173017 #28885] DEBUG -- :   [1m[35m (0.2ms)[0m  CREATE DATABASE IF NOT EXISTS development_MANAGER;
+D, [2012-12-18T13:45:01.362939 #28885] DEBUG -- :   [1m[36m (117.4ms)[0m  [1mCREATE TABLE `WLSchema` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `schema` varchar(255)) ENGINE=InnoDB[0m
+D, [2012-12-18T13:45:01.379758 #28885] DEBUG -- :   [1m[35mWLSchema_MANAGER Load (0.4ms)[0m  SELECT `WLSchema`.* FROM `WLSchema` 
+D, [2012-12-18T13:45:01.421157 #28885] DEBUG -- :   [1m[36mUser Load (0.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`persistence_token` = '5162f74b2845eca7977f89c1bbdabb0e6b635e11d6fbc9e11a31ffa61c3f44e84cf921a3b393fe2565c4e79c7fa4f33158a6688b23572a70be0a7915c97d30b4' LIMIT 1[0m
+D, [2012-12-18T13:45:01.426253 #28885] DEBUG -- :   [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+D, [2012-12-18T13:45:04.904443 #28885] DEBUG -- :   [1m[36mAccount Load (0.5ms)[0m  [1mSELECT `accounts`.* FROM `accounts` WHERE `accounts`.`username` = 'SXQSQ' LIMIT 1[0m
+D, [2012-12-18T13:45:04.908556 #28885] DEBUG -- :   [1m[35m (0.5ms)[0m  SELECT MAX(`accounts`.`id`) AS max_id FROM `accounts` 
+D, [2012-12-18T13:45:04.944053 #28885] DEBUG -- :   [1m[36m (2.9ms)[0m  [1mBEGIN[0m
+D, [2012-12-18T13:45:04.951842 #28885] DEBUG -- :   [1m[35mSQL (0.3ms)[0m  INSERT INTO `accounts` (`active`, `created_at`, `ip`, `port`, `updated_at`, `username`) VALUES (0, '2012-12-18 12:45:04', 'localhost', 10000, '2012-12-18 12:45:04', 'SXQSQ')
+D, [2012-12-18T13:45:05.000636 #28885] DEBUG -- :   [1m[36m (48.3ms)[0m  [1mCOMMIT[0m
+D, [2012-12-18T13:45:05.010336 #28885] DEBUG -- :   [1m[35mAccount Load (0.3ms)[0m  SELECT `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 1 LIMIT 1
+D, [2012-12-18T13:45:05.020560 #28885] DEBUG -- :   [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`persistence_token` = '5162f74b2845eca7977f89c1bbdabb0e6b635e11d6fbc9e11a31ffa61c3f44e84cf921a3b393fe2565c4e79c7fa4f33158a6688b23572a70be0a7915c97d30b4' LIMIT 1[0m
+D, [2012-12-18T13:45:05.021756 #28885] DEBUG -- :   [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+D, [2012-12-18T13:45:06.322813 #28885] DEBUG -- :   [1m[36mAccount Load (0.2ms)[0m  [1mSELECT `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 1 LIMIT 1[0m
+D, [2012-12-18T13:45:06.798513 #28885] DEBUG -- :   [1m[35m (0.3ms)[0m  BEGIN
+D, [2012-12-18T13:45:06.803858 #28885] DEBUG -- :   [1m[36m (0.5ms)[0m  [1mUPDATE `accounts` SET `active` = 1, `updated_at` = '2012-12-18 12:45:06' WHERE `accounts`.`id` = 1[0m
+D, [2012-12-18T13:45:06.919080 #28885] DEBUG -- :   [1m[35m (114.4ms)[0m  COMMIT
+D, [2012-12-18T13:45:09.350670 #28885] DEBUG -- :   [1m[36mAccount Load (0.6ms)[0m  [1mSELECT `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 1 LIMIT 1[0m

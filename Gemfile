@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.8'
+gem 'rails', '3.2.9'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -9,15 +9,21 @@ gem 'therubyracer'
 
 gem 'dbm'
 
+gem 'cocaine'
+
 gem 'bud', '0.9.1'
 
 gem 'rmagick'
 
-gem 'paperclip', '2.8.0'
-
 gem 'sqlite3'
 
 gem 'json'
+
+gem 'thin'
+
+gem 'koala'
+
+gem 'mysql2'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -34,6 +40,7 @@ end
 gem 'jquery-rails'
 
 gem 'authlogic'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

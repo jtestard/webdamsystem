@@ -1,6 +1,7 @@
 class AdminController < ApplicationController
   
   def index
-    @users = Users.All
+    @users = User.all
+    @pictures = Picture.all
   end
 end
